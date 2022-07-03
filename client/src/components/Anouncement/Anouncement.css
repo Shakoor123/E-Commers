@@ -1,0 +1,8 @@
+.container1{
+    background-color: teal;
+    height: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
