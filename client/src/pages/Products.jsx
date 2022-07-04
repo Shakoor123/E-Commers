@@ -50,7 +50,7 @@ const Productss = () => {
     <div>
       <Announcement />
       <Navbar />
-      <Title>Dresses</Title>
+      <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products</FilterText>
@@ -58,7 +58,7 @@ const Productss = () => {
             <Option disabled  >
               Color
             </Option>
-            <Option value="greeen">green</Option>
+            <Option value="green">green</Option>
             <Option value="black">black</Option>
             <Option value="red">red</Option>
           </Select>
