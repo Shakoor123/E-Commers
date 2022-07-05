@@ -7,6 +7,10 @@ import { mobile } from '../responsive'
 import { useState,useEffect } from "react";
 import { publicRequest } from "../requestMethod";
 import { useLocation } from 'react-router-dom'
+import { addProduct } from '../redux/cartRedux'
+import { useDispatch } from 'react-redux'
+
+
 const Wrapper=styled.div`
 padding:20px;
 display:flex;
@@ -101,6 +105,11 @@ const Product = () => {
   const [count, setCount] = useState(1)
   const location=useLocation();
   const id=location.pathname.split('/')[2];
+  const dispatch=useDispatch()
+  const [size, setSize] = useState("")
+  const [color, setcolor] = useState("")
+
+
   useEffect(() => {
     const fetchProduct=async()=>{
       try {
@@ -120,6 +129,9 @@ const Product = () => {
     const dec=()=>{
       count>1 && setCount(count-1)
     }
+    const handdleClick=()=>{
+      dispatch(addProduct({...product,count,color,size}))
+    }
   return (
     <div>
         <Anouncement/>
@@ -136,7 +148,7 @@ const Product = () => {
                         <Filter>
                             <FilterTitle>color</FilterTitle>
                             {product.color?.map((c)=>
-                              <FilterColor color={c}/>  
+                              <FilterColor color={c} onClick={()=>setcolor(c)}/>  
                             )}
 
                             
@@ -145,10 +157,10 @@ const Product = () => {
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
-                            <FilterSiize>
+                            <FilterSiize onChange={(e)=>setSize(e.target.value)}>
                             
                             {product.size?.map((s)=>
-                              <FilterSiizeOption>{s}</FilterSiizeOption> 
+                              <FilterSiizeOption key={s} value={s}>{s}</FilterSiizeOption> 
                             )} 
                             </FilterSiize>
                         </Filter>
@@ -159,7 +171,7 @@ const Product = () => {
                             <Amount>{count}</Amount>
                             <Add onClick={inc}/>
                         </AmountContainer>
-                        <Button>Add to Cart</Button>
+                        <Button onClick={handdleClick}>Add to Cart</Button>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>

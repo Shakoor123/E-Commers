@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar/Navbar";
 import Anouncement from "../components/Anouncement/Anouncement";
 import Footer from "../components/footer/Footer";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import { useSelector } from "react-redux";
+import StripeCheckout from 'react-stripe-checkout'
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
@@ -124,6 +126,11 @@ const SummeryItem = styled.div`
 `;
 const SummeryItemText = styled.span``;
 const SummeryItemPrice = styled.span``;
+const SummeryItemText1 = styled.span`
+color:green;
+
+`;
+const SummeryItemPrice1 = styled.span``;
 const Button = styled.button`
   width: 100%;
   padding: 10px;
@@ -134,6 +141,13 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const KEY=process.env.REACT_APP_STRIPE;
+  console.log(KEY);
+  const cart=useSelector(state=>state.cart)
+  const [stripeToken, setStripeToken] = useState(null)
+  const onToken=(token)=>{
+    setStripeToken(token)
+  }
   return (
     <Container>
       <Anouncement />
@@ -150,50 +164,66 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
+            {cart.products.map(product=>(
             <Product>
               <ProductDetails>
-                <Image src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+                <Image src={product.img} />
                 <Details>
                   <ProductName>
-                    <b>Product : </b>Car Washer
+                    <b>Product : </b>{product.title}
                   </ProductName>
                   <ProductId>
-                    <b> Id: </b>9995559990
+                    <b> Id: </b>{product._id}
                   </ProductId>
-                  <ProductColor color="black" />
-                  <ProductColor color="blue" />
-                  <ProductColor color="green" />
+                  <ProductColor color={product.color} />
                   <ProductSize>
-                    <b> size: </b>10
+                    <b> size: </b>{product.size}
                   </ProductSize>
                 </Details>
               </ProductDetails>
               <PriceDetails>
                 <ProductAmountContainer>
                   <Add />
-                  <ProductAmount>3</ProductAmount>
+                  <ProductAmount>{product.count}</ProductAmount>
                   <Remove />
                 </ProductAmountContainer>
-                <ProductPrice>RS 3000</ProductPrice>
+                <ProductPrice>RS {product.price*product.count}</ProductPrice>
               </PriceDetails>
-            </Product>
+            </Product>))}
             <Hr></Hr>
           </Info>
           <Summery>
             <SummeryTitle>ORDER Summery</SummeryTitle>
             <SummeryItem>
               <SummeryItemText>SubTotal</SummeryItemText>
-              <SummeryItemPrice>Rs : 30</SummeryItemPrice>
+              <SummeryItemPrice>{cart.total}</SummeryItemPrice>
             </SummeryItem>
             <SummeryItem>
-              <SummeryItemText>SubTotal</SummeryItemText>
-              <SummeryItemPrice>Rs : 30</SummeryItemPrice>
+              <SummeryItemText>Estimation shopping</SummeryItemText>
+              <SummeryItemPrice>Rs : 50</SummeryItemPrice>
             </SummeryItem>
             <SummeryItem>
-              <SummeryItemText>SubTotal</SummeryItemText>
-              <SummeryItemPrice>Rs : 30</SummeryItemPrice>
+              <SummeryItemText>Shipping Discount</SummeryItemText>
+              <SummeryItemPrice>Rs : 50</SummeryItemPrice>
             </SummeryItem>
-            <Button>Check out Now</Button>
+            <SummeryItem>
+              <SummeryItemText1>Total</SummeryItemText1>
+              <SummeryItemPrice1>{cart.total}</SummeryItemPrice1>
+            </SummeryItem>
+              <StripeCheckout
+              name="kattipara shop"
+              image="https://avathars.githubusercontent.com/u/1486366?v=4"
+              billingAddress
+              shippingAddress
+              description={`your total is RS${cart.total}`}
+              amount={cart.total*100}
+              token={onToken}
+              stripeKey={KEY}
+              >
+              <Button>Check out Now</Button>
+              </StripeCheckout>
+
+            
           </Summery>
         </Bottom>
       </Wrapper>
