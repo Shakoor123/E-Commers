@@ -27,6 +27,7 @@ const Navbar = () => {
             </h1>
           </div>
           <div className="right">
+            
             <span className="buttonn">REGISTER</span>
             <span className="buttonn">LOG_IN</span>
             <Badge badgeContent={quantity} color='primary'>

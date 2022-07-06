@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Product from './pages/Product';
 import Productss from './pages/Products';
 import Signup from './pages/Signup';
+import Success from './pages/Success'
 import {
   BrowserRouter,
   Routes,
@@ -27,6 +28,7 @@ function App() {
       <Route path="/signup" element={cuser?<Home/>:<Signup />} />
       <Route path="/product/:id" element={cuser?<Product />:<Login/>} />
       <Route path="/cart"  element={cuser?<Cart />:<Login/>} />
+      <Route path="/success"  element={cuser?<Success />:<Login/>} />
     </Routes>
   </BrowserRouter>
     </div>
