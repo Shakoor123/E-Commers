@@ -6,12 +6,12 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
-const stripeRoute=require('./routes/stripe')
+const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
 require("dotenv").config();
 
 app.listen(5000, () => {
-  console.log("server running");
+  console.log("server running 5000");
 });
 mongoose
   .connect(process.env.DB_URL)
@@ -26,4 +26,3 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
-

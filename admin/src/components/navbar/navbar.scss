@@ -1,0 +1,54 @@
+.navbar{
+    height: 50px;
+    border-bottom:.5px solid rgb(230, 223, 223);
+    width: 100%;
+  
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        .left{
+            display: flex;
+            border: 1px solid lightgray;
+            .input{
+                border: none;
+                outline: none;
+                
+            }
+        }
+
+        .right{
+            display: flex;
+            align-items: center;
+            
+            .item{
+                margin-right: 15px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+                color: gray;
+                .img{
+
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+
+                }
+                .badge{
+                    background-color: red;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    color: white;
+                    display: flex;align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
