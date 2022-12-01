@@ -9,24 +9,19 @@ import Productss from "./pages/Products";
 import Signup from "./pages/Signup";
 import Success from "./pages/Success";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 function App() {
-  const [cuser, setUser] = useState(false);
+  const cuser = useSelector((state) => state.user.currentUser);
+  console.log(cuser);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={cuser ? <Home /> : <Login />} />
-          <Route
-            path="/products/:category"
-            element={cuser ? <Productss /> : <Login />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:category" element={<Productss />} />
           <Route path="/login" element={cuser ? <Home /> : <Login />} />
           <Route path="/signup" element={cuser ? <Home /> : <Signup />} />
-          <Route
-            path="/product/:id"
-            element={cuser ? <Product /> : <Login />}
-          />
+          <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={cuser ? <Cart /> : <Login />} />
           <Route path="/success" element={cuser ? <Success /> : <Login />} />
         </Routes>

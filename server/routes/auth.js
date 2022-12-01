@@ -2,13 +2,11 @@ const router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
-
+const dotenv = require("dotenv");
+dotenv.config();
 //register
 router.post("/register", async (req, res) => {
-  var encrypted = await CryptoJS.AES.encrypt(
-    req.body.password,
-    process.env.CRIPTOJS_SEC
-  );
+  var encrypted = await CryptoJS.AES.encrypt(req.body.password, "shakoor");
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
@@ -26,10 +24,7 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      var decrypted = await CryptoJS.AES.decrypt(
-        user.password,
-        process.env.CRIPTOJS_SEC
-      );
+      var decrypted = await CryptoJS.AES.decrypt(user.password, "shakoor");
       password = decrypted.toString(CryptoJS.enc.Utf8);
       if (password === req.body.password) {
         const Token = jwt.sign(

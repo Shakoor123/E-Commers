@@ -1,50 +1,60 @@
-.navbar{
-    height: 60px;
+.navbar {
+  height: 60px;
 }
-.wrappern{
-    display: flex;
-    padding: 10px 20px;
-    justify-content: space-between;
+.wrappern {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
 }
 
-.left,.center,.right{
-flex: 1;
-
+.left,
+.center,
+.right {
+  flex: 1;
 }
-.center{
-    text-align: center;
+.center {
+  text-align: center;
 }
-.left{
-    display: flex;
-    align-items: center;
-    
+.left {
+  display: flex;
+  align-items: center;
 }
 @media only screen and (max-width: 450px) {
-    .left {
-      display: none;
-    }
+  .left {
+    display: none;
   }
-.right{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 }
-.span{
-    font-size: 14px;
-    cursor: pointer;
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
 }
-.inputContainer{
-    border: 1px solid lightgray;
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
-    padding:5px;
+.span {
+  font-size: 14px;
+  cursor: pointer;
 }
-.input{
-    border: none;
+.inputContainer {
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
 }
-.buttonn{
-    margin-right: 25px;
-    cursor: pointer;
-    padding: 5px;
+.input {
+  border: none;
+}
+.buttonn {
+  margin-right: 25px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 12px;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  font-size: 15px;
 }
