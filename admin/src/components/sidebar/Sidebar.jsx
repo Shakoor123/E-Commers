@@ -15,7 +15,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/darkmodeContext";
 
 function Sidebar() {
-  const {setDark}=useContext(AuthContext)
+  const { setDark } = useContext(AuthContext);
   return (
     <div className="sidebar">
       <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -26,27 +26,29 @@ function Sidebar() {
         <ul>
           <p className="title">MAIN</p>
           <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </Link>
           </li>
           <p className="title">LINKS</p>
-          <Link to={"/list"} style={{ textDecoration: "none" }}>
-          <li>
+          <Link to={"/list/users"} style={{ textDecoration: "none" }}>
+            <li>
               <PeopleIcon className="icon" />
               <span>Users</span>
-          </li>
+            </li>
           </Link>
-          <Link to={"/list"} style={{ textDecoration: "none" }}>
-          <li>
-            <Inventory2TwoToneIcon className="icon" />
-            <span>Products</span>
-          </li>
+          <Link to={"/list/products"} style={{ textDecoration: "none" }}>
+            <li>
+              <Inventory2TwoToneIcon className="icon" />
+              <span>Products</span>
+            </li>
           </Link>
-          <Link to={"/list"} style={{ textDecoration: "none" }}>
-          <li>
-            <BookmarkBorderOutlinedIcon className="icon" />
-            <span>Orders</span>
-          </li>
+          <Link to={"/list/orders"} style={{ textDecoration: "none" }}>
+            <li>
+              <BookmarkBorderOutlinedIcon className="icon" />
+              <span>Orders</span>
+            </li>
           </Link>
           <p className="title">USWEFULL</p>
           <li>
@@ -82,13 +84,17 @@ function Sidebar() {
         </ul>
       </div>
       <div className="bottom">
-        <div className="color" onClick={()=>{
-          setDark(false)
-        }}></div>
-        <div className="color"
-        onClick={()=>{
-          setDark(true)
-        }}
+        <div
+          className="color"
+          onClick={() => {
+            setDark(false);
+          }}
+        ></div>
+        <div
+          className="color"
+          onClick={() => {
+            setDark(true);
+          }}
         ></div>
       </div>
     </div>
