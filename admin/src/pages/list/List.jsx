@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import "./list.scss";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../../requestMethod";
+import CustomTable from "../../components/customTable/CustomTable";
 const List = () => {
   const [datas, setDatas] = useState([]);
   const location = useLocation();
@@ -28,7 +29,11 @@ const List = () => {
         <Navbar />
         <div className="tableConatiner">
           <div className="title">{type}</div>
-          <NewTable datas={datas} type={type} />
+          {type == "users" ? (
+            <NewTable datas={datas} type={type} />
+          ) : (
+            <CustomTable />
+          )}
         </div>
       </div>
     </div>

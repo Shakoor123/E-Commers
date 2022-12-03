@@ -18,7 +18,7 @@ function App() {
           <Route path={"/"} element={<Home />} />
           <Route path={"/list/:type"} element={<List />} />
           <Route path={"/login"} element={<Login />} />
-          <Route path={"/new"} element={<New />} />
+          <Route path={"/new/:user"} element={<New />} />
           <Route path={"/single"} element={<Single />} />
         </Routes>
       </BrowserRouter>
