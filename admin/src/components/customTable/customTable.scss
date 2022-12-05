@@ -1,23 +1,33 @@
 .table {
-  background-color: rgb(228, 244, 244);
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 25px;
   padding: 20px;
   display: flex;
   border: 1px solid gray;
   flex-direction: column;
-  width: 150vh;
+  width: 70vw;
   .top {
     margin-bottom: 20px;
   }
   tr {
     display: flex;
+    margin-bottom: 1px solid gray;
+
     th {
-      width: 20vw;
+      width: 25vw;
       text-align: left;
     }
 
     td {
       width: 15vw;
       text-align: left;
+    }
+  }
+  .bottom {
+    td {
+      margin-right: 10px;
     }
   }
 }
