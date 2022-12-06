@@ -9,8 +9,12 @@ import "./style/dark.scss";
 import { useContext, useState } from "react";
 import { AuthContext } from "./context/darkmodeContext";
 function App() {
-  const { dark, user } = useContext(AuthContext);
+  const { dark, user, setUser } = useContext(AuthContext);
   // const [user, setUser] = useState(true);
+  let cuser = JSON.parse(localStorage.getItem("eCommersUser"));
+  if (cuser.Token) {
+    setUser(cuser);
+  }
   return (
     <div className={dark ? "app dark" : "app"}>
       <BrowserRouter>

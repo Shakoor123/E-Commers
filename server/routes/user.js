@@ -86,7 +86,7 @@ router.get("/status", async (req, res) => {
       },
     ]);
     const newdata = data.sort((a, b) => a._id - b._id);
-    res.status(200).json(newdata);
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }

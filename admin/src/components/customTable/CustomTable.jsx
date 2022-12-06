@@ -2,8 +2,6 @@ import React from "react";
 import "./customTable.scss";
 import { Link } from "react-router-dom";
 const CustomTable = ({ datas, type }) => {
-  console.log(datas);
-  console.log(type);
   return (
     <>
       <Link to={"/new/product"}>

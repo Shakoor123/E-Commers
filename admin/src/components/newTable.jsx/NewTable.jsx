@@ -31,8 +31,6 @@ const rows = [
 ];
 
 export default function NewTable({ datas, type }) {
-  console.log(datas);
-  console.log(type);
   useEffect(() => {}, []);
 
   return (

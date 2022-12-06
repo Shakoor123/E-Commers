@@ -12,6 +12,7 @@ const Login = () => {
     try {
       const res = await publicRequest.post("/auth/login", { email, password });
       if (res.status === 200) {
+        localStorage.setItem("eCommersUser", JSON.stringify(res.data));
         setUser(res.data);
       }
     } catch (err) {
