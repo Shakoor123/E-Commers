@@ -66,7 +66,7 @@ router.get("/", async (req, res) => {
 
 //get user status
 
-router.get("/status", verifyTokenAndAdmin, async (req, res) => {
+router.get("/status", async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
 
@@ -85,7 +85,8 @@ router.get("/status", verifyTokenAndAdmin, async (req, res) => {
         },
       },
     ]);
-    res.status(200).json(data);
+    const newdata = data.sort((a, b) => a._id - b._id);
+    res.status(200).json(newdata);
   } catch (err) {
     res.status(500).json(err);
   }

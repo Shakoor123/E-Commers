@@ -8,9 +8,17 @@ import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/darkmodeContext";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-  const { setDark } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { setDark, setUser, user } = useContext(AuthContext);
+  const logOutHandle = () => {
+    if (user) {
+      setUser(null);
+    }
+    navigate("/login");
+  };
   return (
     <div className="sidebar">
       <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -52,7 +60,7 @@ function Sidebar() {
             <span>Profile</span>
           </li>
 
-          <li>
+          <li onClick={logOutHandle}>
             <ExitToAppOutlinedIcon className="icon" />
             <span>Log out</span>
           </li>

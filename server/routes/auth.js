@@ -3,14 +3,18 @@ const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const { v1: uuidv1, v4: uuidv4 } = require("uuid");
 dotenv.config();
 //register
 router.post("/register", async (req, res) => {
   var encrypted = await CryptoJS.AES.encrypt(req.body.password, "shakoor");
+  const id = uuidv4();
+
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
     password: encrypted,
+    id: id,
   });
   try {
     const user = await newUser.save();
@@ -35,7 +39,6 @@ router.post("/login", async (req, res) => {
           process.env.JWT_SEC,
           { expiresIn: "3d" }
         );
-
         const { password, ...others } = user._doc;
         res.status(200).json({ ...others, Token });
       } else {

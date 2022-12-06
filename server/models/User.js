@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
@@ -9,6 +8,11 @@ const UserSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    id: {
+      type: String,
+      required: true,
+      unique: true,
     },
   },
   { timestamps: true }
