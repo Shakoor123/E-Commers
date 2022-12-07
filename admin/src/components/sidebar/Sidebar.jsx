@@ -15,6 +15,7 @@ function Sidebar() {
   const { setDark, setUser, user } = useContext(AuthContext);
   const logOutHandle = () => {
     if (user) {
+      localStorage.removeItem("eCommersUser");
       setUser(null);
     }
     navigate("/login");

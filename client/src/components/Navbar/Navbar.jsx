@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
-
+  const cuser = useSelector((state) => state.user.currentUser);
   return (
     <div className="navbar">
       <div className="wrappern">
@@ -21,15 +21,23 @@ const Navbar = () => {
           </div>
         </div>
         <div className="center">
-          <h1 className="logo">Dark_Shop</h1>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            <h1 className="logo">Dark_Shop</h1>
+          </Link>
         </div>
         <div className="right">
-          <Link style={{ textDecoration: "none" }} to={"/signup"}>
-            <span className="buttonn">REGISTER</span>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to={"/login"}>
-            <span className="buttonn">LOG_IN</span>
-          </Link>
+          {cuser ? (
+            <span className="username">{cuser.username}</span>
+          ) : (
+            <>
+              {/* <Link style={{ textDecoration: "none" }} to={"/signup"}>
+                <span className="buttonn">REGISTER</span>
+              </Link> */}
+              <Link style={{ textDecoration: "none" }} to={"/login"}>
+                <span className="buttonn">LOG_IN</span>
+              </Link>
+            </>
+          )}
           <Badge badgeContent={quantity} color="primary">
             <Link to={"/cart"}>
               <ShoppingCartOutlinedIcon />

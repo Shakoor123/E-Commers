@@ -1,12 +1,18 @@
 import "./login.scss";
 import { AuthContext } from "../../context/darkmodeContext";
-import { useContext } from "react";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { publicRequest } from "../../requestMethod";
 const Login = () => {
   const { setUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cuser, setCuser] = useState({});
+  useEffect(() => {
+    setCuser(JSON.parse(localStorage.getItem("eCommersUser")) || {});
+    if (cuser.Token) {
+      setUser(cuser);
+    }
+  }, [cuser]);
 
   const handleLogin = async () => {
     try {

@@ -1,86 +1,80 @@
-.app.dark{
+.app.dark {
+  background-color: #222;
+  color: aliceblue;
+  .chartGrid {
+    stroke: white;
+  }
+  .homeContainer {
+    .widgetContainer {
+      .widget {
+        box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+        -webkit-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+        -moz-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      }
+    }
+    .leftchart {
+      box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      -webkit-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      -moz-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      .title {
+        color: white;
+      }
+    }
+    .rightchart {
+      box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      -webkit-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      -moz-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      .title {
+        color: white;
+      }
+    }
+  }
+  .list {
     background-color: #222;
-    color: aliceblue;
-    .chartGrid{
-        stroke:white;
+    color: #333;
+    .tableCell {
+      color: gray;
     }
-        .homeContainer{
-            .widgetContainer{
-                .widget{
-                    box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
--webkit-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
--moz-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                }
-                   
-                    
-                
-            }
-            .leftchart{
-                box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                -webkit-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                -moz-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                .title{
-                    color: white;
-                }
-
-            }
-            .rightchart{
-                box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                -webkit-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                -moz-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                .title{
-                    color: white;
-                }
-            }
-            
-        }
-    .list{
-        background-color: #222;
-        color:#333;
-        .tableCell{
-            color: gray;
-        }
-        
+  }
+  .navbar {
+    background-color: #222;
+    color: white;
+  }
+  .sidebar {
+    background-color: #222;
+    color: white;
+    .top {
+      color: white;
     }
-    .navbar{
-        background-color: #222;
-        color: white;
-    }
-    .sidebar{
-        background-color: #222;
-        color:white;
-        .top{
-            color: white;
+    .center {
+      ul {
+        li {
+          .icon {
+            color: rgb(211, 194, 194);
+          }
         }
-        .center{
-            ul{
-                li{
-                    .icon{
-                        color: rgb(211, 194, 194);
-                    }
-                }
-                li:hover{
-                    background-color: rgb(71, 65, 65);
-                }
-            }
+        li:hover {
+          background-color: rgb(71, 65, 65);
         }
+      }
     }
-    .NewTable{
-        color: white;
-        .colum{
-            color: white;
-        }
-        box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-        -webkit-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-        -moz-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
+  }
+  .NewTable {
+    color: white;
+    .colum {
+      color: white;
     }
-    .new{
-        .newConntainer{
-            .tableConatiner{
-                box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                -webkit-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-                -moz-box-shadow: -10px -9px 15px -5px rgba(255,255,255,0.69);
-            }
-        }
+    box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+    -webkit-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+    -moz-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+  }
+  .new {
+    .newConntainer {
+      .tableConatiner {
+        box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+        -webkit-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+        -moz-box-shadow: -10px -9px 15px -5px rgba(255, 255, 255, 0.69);
+      }
     }
+  }
 }
