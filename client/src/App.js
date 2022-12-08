@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
@@ -9,10 +9,21 @@ import Productss from "./pages/Products";
 import Signup from "./pages/Signup";
 import Success from "./pages/Success";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loginSuccess } from "./redux/userRedux";
 function App() {
+  const dispatch = useDispatch();
+  const [oUser, setOUser] = useState({});
   const cuser = useSelector((state) => state.user.currentUser);
-  console.log(cuser);
+  useEffect(() => {
+    const getOldUser = async () => {
+      if (JSON.parse(localStorage.getItem("eCommers")).Token) {
+        dispatch(loginSuccess(JSON.parse(localStorage.getItem("eCommers"))));
+      }
+    };
+    getOldUser();
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
