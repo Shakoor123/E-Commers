@@ -49,9 +49,11 @@ const Navbar = () => {
             </>
           )}
           <Badge badgeContent={quantity} color="primary">
-            <span className="logout" onClick={handleLogout}>
-              logout
-            </span>
+            {cuser && (
+              <span className="logout" onClick={handleLogout}>
+                logout
+              </span>
+            )}
 
             <Link to={"/cart"}>
               <ShoppingCartOutlinedIcon />

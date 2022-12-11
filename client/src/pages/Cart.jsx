@@ -133,7 +133,8 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
-  const KEY = process.env.REACT_APP_STRIPE;
+  const KEY =
+    "pk_test_51MDnWbSJtKGUb1RhOcvfrOYkCAukkVV2ZhcqU1MCGeMAexEwOh3hV9eX1aR1jSiAUHGMbiRhBOiRKx7plKyn7InY00epcw59ps";
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const navigate = useNavigate();
@@ -147,11 +148,12 @@ const Cart = () => {
       try {
         const res = await userRequest.post("checkout/payment", {
           tokenId: stripeToken.id,
-          amount: cart.total * 100,
+          amount: cart.total,
         });
         navigate("/success", { data: res.data });
       } catch (err) {
         console.log(err);
+        navigate("/");
       }
     };
     stripeToken && makeRequest();
@@ -173,7 +175,7 @@ const Cart = () => {
         <Bottom>
           <Info>
             {cart.products.map((product) => (
-              <Product>
+              <Product key={product._id}>
                 <ProductDetails>
                   <Image src={product.img} />
                   <Details>
