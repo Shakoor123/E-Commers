@@ -1,20 +1,22 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
-  const authHedder = req.headers.token;
-  if (authHedder) {
-    const token = authHedder.split(" ")[1];
-    jwt.verify(token, process.env.JWT_SEC, (err, user) => {
-      if (err) {
-        res.status(401).json("token not valid");
-      } else {
-        req.user = user;
-        next();
-      }
-    });
-  } else {
-    return res.status(401).json("you are not authenticated !");
-  }
+  // console.log("jwt: ", req.cookies.Ecom);
+  // const authHedder = req.headers.token;
+  // if (authHedder) {
+  // const token = authHedder.split(" ")[1];
+  const token = req.cookies.Ecom;
+  jwt.verify(token, process.env.JWT_SEC, (err, user) => {
+    if (err) {
+      res.status(401).json("token not valid");
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+  // } else {
+  //   return res.status(401).json("you are not authenticated !");
+  // }
 };
 
 const verifyTokenAndAutherization = (req, res, next) => {

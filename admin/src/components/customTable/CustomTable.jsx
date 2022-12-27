@@ -17,6 +17,8 @@ const CustomTable = ({ datas, type }) => {
             <th>Instock</th>
             <th>Sizes</th>
             <th>colors</th>
+            <th>Image</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +31,22 @@ const CustomTable = ({ datas, type }) => {
               <td>{product.inStock ? "Available" : "Not Available"}</td>
               <td>m,s,l</td>
               <td>black , green , yellow</td>
+              <td>
+                <img src={product.img} alt="" className="image" />
+              </td>
+              <td>
+                <button
+                  style={{
+                    color: "red",
+                    backgroundColor: "white",
+                    cursor: "pointer",
+                    padding: 8,
+                    borderRadius: 18,
+                  }}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

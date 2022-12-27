@@ -28,6 +28,10 @@
   .bottom {
     td {
       margin-right: 10px;
+      .image {
+        width: 65px;
+        height: 65px;
+      }
     }
   }
 }

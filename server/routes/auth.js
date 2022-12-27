@@ -40,6 +40,11 @@ router.post("/login", async (req, res) => {
           { expiresIn: "3d" }
         );
         const { password, ...others } = user._doc;
+        res.cookie("Ecom", Token, {
+          httpOnly: false,
+          secure: false,
+          maxAge: 3600000,
+        });
         res.status(200).json({ ...others, Token });
       } else {
         res.status(401).json({ message: "password is incorrect" });
