@@ -21,7 +21,7 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 90vh;
-  object-fit: cover;
+  object-fit: contain;
 `;
 const InfoContainer = styled.div`
   padding: 0 50px;
@@ -37,6 +37,7 @@ const Desc = styled.p`
 const Price = styled.span`
   font-weight: 100;
   font-size: 40px;
+  margin-bottom: 30px;
 `;
 const FilterContainer = styled.div`
   display: flex;
@@ -71,11 +72,13 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${mobile({ width: "100%" })}
 `;
 
 const AmountContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   font-weight: 700;
   margin-top: 30px;
 `;
@@ -92,7 +95,7 @@ const Amount = styled.span`
 `;
 
 const Button = styled.button`
-  padding: 15px;
+  padding: 13px;
   border: 2px solid teal;
   background-color: white;
   cursor: pointer;

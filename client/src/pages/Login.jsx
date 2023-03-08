@@ -2,6 +2,7 @@ import React from "react";
 import "../components/Signup/Signup.css";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { login } from "../redux/apiCall";
 const Login = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ const Login = () => {
         <button className="button" onClick={handleClick}>
           LOGIN
         </button>
+        <Link to={"/signup"} style={{ textDecoration: "none", color: "blue" }}>
+          <span>Don't have account</span>
+        </Link>
       </div>
     </div>
   );

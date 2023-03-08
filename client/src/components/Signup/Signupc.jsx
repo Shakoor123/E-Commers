@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Signup.css";
 import { publicRequest } from "../../requestMethod";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/apiCall";
 
@@ -68,6 +68,9 @@ const Signupc = () => {
         <button className="button" onClick={handleSignUp}>
           CREATE
         </button>
+        <Link to={"/login"} style={{ textDecoration: "none", color: "blue" }}>
+          <span>Login</span>
+        </Link>
       </div>
     </div>
   );

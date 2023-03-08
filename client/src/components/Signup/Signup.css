@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 7%;
+  height: 100%;
 }
 .wrapper {
   display: flex;
@@ -14,6 +15,8 @@
   padding: 10px;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  gap: 15px;
 }
 .hedding {
   color: rgb(0, 8, 255);
@@ -25,6 +28,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 80%;
+  outline: none;
+  border: none;
 }
 .inputs {
   border: 0.6px solid;
@@ -32,6 +38,8 @@
   margin-bottom: 3px;
   width: 95%;
   border-radius: 12px;
+  outline: none;
+  border: none;
 }
 .inputs:hover {
   color: rgb(0, 0, 0);
